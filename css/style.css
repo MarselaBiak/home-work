@@ -1,0 +1,13 @@
+#greet {
+    font-family: 'Franklin Gothic Medium';
+    font-size: 50px;
+    color: rgb(252, 180, 204);
+    text-align: center;
+    transition: 0.5s;
+}
+
+#greet:hover {
+    font-size: 55px;
+    color: rgb(255, 138, 177);
+    cursor: default;
+}
