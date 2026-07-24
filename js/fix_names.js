@@ -1,3 +1,5 @@
+'use strict';
+
 /* було:
 * let x = 25;
 * let n = 'Anna';
