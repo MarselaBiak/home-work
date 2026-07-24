@@ -1,3 +1,5 @@
+'use strict';
+
 const API_URL = "https://api.example.com";
 const MAX_LOGIN_ATTEMPTS = 5;
 const PRIMARY_COLOR = "#FFFFFF";
