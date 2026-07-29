@@ -1,105 +1,20 @@
-| № | Выражение | Моя гипотеза | Реальный результат | Пояснение |
+| № | Сцена | Что вывелось | Кто виноват | Как избежать |
 |---|---|---|---|---|
-| 1 | 42 | number | number | это число |
-| 2 | 42n | bigint | bigint | в конце n это большое число |
-| 3 | 'hello' | string | string | это текст |
-| 4 | true | boolean | boolean | догическое значение  |
-| 5 | undefined | undefined | undefined | значение не задано |
-| 6 | null | null | object | особенность js |
-| 7 | NaN | number | number | специальное числовое значение |
-| 8 | Infinity | number | number | бесконечное числовое значение |
-| 9 | Symbol('id') | symbol | symbol | уникальный идентификатор |
-| 10 | {} | object | object | пустой объект |
-| 11 | [] | object | object | массив считается объектом |
-| 12 | [1, 2, 3] | object | object | массив считается объектом |
-| 13 | function() {} | function | function | обыяная функция |
-| 14 | (() => {}) | function | function | стрелочная функция |
-| 15 | (2 + 2) | number | number | сложение чисел |
-| 16 | ('2' + 2) | string | string | строка и число склеиваются |
-| 17 | ('foo' - 'bar') | number | number | результат нан, что означает число |
-| 18 | x | undefined | undefined | переменная созданная без значения |
-| 19 | typeof nonExistentVariable | undefined | undefined |  `typeof` не вызывает ошибку для неизвестной переменной |
-| 20 | typeof 42 | string | string | `typeof` всегда возвращает строку |
+| 1 | `let name; console.log(name);` | undefined | переменной не дано значение | сразу присвоить переменной значение |
+| 2 | `let name = null; console.log(name);` | null | переменной присвоен `null` | проверять значение перед использованием |
+| 3 | `function greet(user) { console.log('Hello,', user); } greet();` | Hello, undefined | в вызове функции не передеют значение | предать аргумент `greet('какое-то имя')` или задать значение по умолчанию |
+| 4 | `function calculate(a, b) { return a + b; // забули повернути результат окремої змінної } console.log(calculate(2, 3));` | 5 | просто возращается результат | функция правильно возвращает результат |
+| 5 | `function calculate(a, b) { let result = a + b; // не написали return } console.log(calculate(2, 3));` | undefined | нет `return`, результат не возращается | написать `return result` |
+| 6 | `function calculate(a, b) { return; } console.log(calculate(2, 3))` | undefined | `return` ничего не возвращает, нет действий в функции | после `return` указать возвращаемое значение |
+| 7 | `const user = { firstName: 'John', lastName: 'Doe' }; console.log(user.age);` | undefined | в объекте user нет свойства `age` | добавить свойство `age` или проверить его наличие |
+| 8 | `const user = { firstName: 'John', middleName: null,   // розробник свідомо сказав, що середнього імені немає lastName: 'Doe' }; console.log(user.middleName);` | null | специально заданный `null` | перед использованием проверять на `null` |
+| 9 | `const arr = [10, 20, 30]; console.log(arr[10]);` | undefined | в массиве нет элемента с индексом 10 | проверять, существует ли такой индекс |
+| 10 | `const user = { name: 'Anna', address: { city: 'Kyiv' } }; console.log(user.address.street);` | undefined | в объекте `address` нет свойства `street` | добавить свойство `street` или проверить его перед обращением |
 
----
 
-# Підозрілі справи
 
-### `typeof null`
 
-Результат:
 
-```js
-typeof null // 'object'
-```
-
-Это выглядит как ошибка, потому что `null` не является объектом. Это старая особенность JavaScript.  
-
-Правильная проверка:
-
-```js
-value === null
-```
-
----
-
-### `typeof []`
-
-Результат:
-
-```js
-typeof [] // 'object'
-```
-
-Массив является отдельным видом объекта, поэтому `typeof не показывает `array`.  
-
-Правильная проверка:
-
-```js
-Array.isArray(value)
-```
-
-### `typeof NaN`
-
-Результат:
-
-```js
-typeof NaN // 'number'
-```
-
-Это выглядит странно, потому что `NaN` означает «не число», но технически относится к типу `number`.
-
-Правильная проверка:
-
-```js
-Number.isNaN(value)
-```
-
-### `typeof nonExistentVariable`
-
-Результат:
-
-```js
-typeof nonExistentVariable // 'undefined'
-```
-
-`typeof` не вызывает ошибку, даже если переменная не была объявлена.
-
-Но если написать переменную без `typeof`:
-
-```js
-nonExistentVariable
-```
-
-будет ошибка `ReferenceError`.
-
-Правильная проверка:
-
-```js
-typeof nonExistentVariable === 'undefined'
-```
-
-Это можно вставить в `answers.md` после таблицы.
 
 
 
