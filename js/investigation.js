@@ -1,54 +1,31 @@
 'use strict';
 
-// задание 3
+// задание 1
 
-function describeEmpty(value) {
-    if(value === undefined){
-        return 'Это undefined — JavaScript сам поставил или значение не задано'
-    } else if (value === null){
-        return 'Это null — разработчик осознанно сказал, что тут пусто'
-    } else {
-        return `Это не пустой элемент значение: ${typeof value}, ${value}`
-    }
+const hasPromoCode = true
+const cartTotal = 5000
+const isBlackFriday = false
+
+const isDiscountApplied =   (cartTotal >= 100 && hasPromoCode) || isBlackFriday
+
+if (isDiscountApplied){
+    console.log('Скидка применена')
+} else {
+    console.log('Скидка не применена')
 }
 
-console.log(describeEmpty(null))
-console.log(describeEmpty(undefined))
-console.log(describeEmpty(0))
-console.log(describeEmpty(''))
-console.log(describeEmpty([]))
-console.log(describeEmpty(false))
+const noDiscount = !isDiscountApplied
 
-// задание 4
+// задание 2
 
-let userName;
-let userAge;
+const email = 'marselabiak@gmail.com'
+const password = 'qwerty12345'
+const isEmailVerified = false
 
-userName = 'Anna';
-userAge = 20;
-console.log('name:', userName);
+const canLogin =   email !== '' && password !== '' && isEmailVerified === true
 
-function getGreeting(name) {
-    return `Hello, ${name}`
+if (canLogin) {
+    console.log('Логин успешный');
+} else {
+    console.log('Проверьте данные');
 }
-
-const message = getGreeting('World');
-console.log('message:', message);
-
-// добавила значение для userAge и вместо console.log сделала return 
-
-// задание 5
-
-const user1 = {
-    name: 'Anna',
-    contact: { email: 'anna@example.com' }
-};
-
-const user2 = {
-    name: 'Bob'
-    // у Боба немає contact взагалі
-};
-
-// Треба вивести email обох:
-console.log(user1.contact?.email);   // працює: 'anna@example.com'
-console.log(user2.contact?.email);   // undefined, ошибки нет
