@@ -11,11 +11,23 @@ p {
     font-size: 30px;
     color: rgb(255, 207, 223);
     text-align: center;
-    transition: 0.5s;
 }
 
 h1:hover {
     font-size: 55px;
     color: rgb(255, 138, 177);
     cursor: default;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+li {
+    font-family: 'Franklin Gothic Medium';
+    font-size: 30px;
+    color: rgb(255, 207, 223);
 }
