@@ -5,19 +5,12 @@ body {
     gap: 30px;
 }
 
-h1 {
+.hw-text {
     font-family: 'Franklin Gothic Medium';
     font-size: 50px;
     color: rgb(255, 173, 200);
     text-align: center;
     transition: 0.5s;
-}
-
-p {
-    font-family: 'Franklin Gothic Medium';
-    font-size: 30px;
-    color: rgb(255, 207, 223);
-    text-align: center;
 }
 
 h1:hover {
@@ -26,25 +19,65 @@ h1:hover {
     cursor: default;
 }
 
-div {
-    align-items: center;
+.card-container {
+    display: flex;
+    align-items: flex-start;
     justify-content: center;
-    flex-direction: column;
-    display: none;
+    gap: 15px;
 }
 
-img {
-    width: 200px;
+.card {
+    width: 320px;
+    box-shadow: 0 0 10px 0 rgba(71, 54, 122, 0.12);
+    border-radius: 15px;
+    padding: 5px 25px;
 }
 
-input {
-    width: 200px;
-    height: 30px;
-    padding: 0 10px;
-    border-radius: 30px;
-    outline: none;
-    border: 2px solid rgb(255, 138, 177);
+.card-upper-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid rgb(255, 215, 229);
+}
+
+.card-upper-panel h1{
     font-family: 'Franklin Gothic Medium';
-    font-size: 14px;
-    color: rgb(255, 207, 223);
+    font-size: 30px;
+    color: rgb(255, 173, 200);    
 }
+
+.card-upper-panel button{
+    font-family: 'Franklin Gothic Medium';
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 15px;
+    padding: 5px 10px;
+    background-color: rgb(255, 173, 200);   
+    transition: 0.2s; 
+}
+
+.card-upper-panel button:active{
+    scale: 0.8;    
+}
+
+.card-bottom-panel {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: 0.4s;
+}
+.card.expanded .card-bottom-panel {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+}
+.card-bottom-panel p{
+    font-family: 'Franklin Gothic Medium';
+    font-size: 20px;
+    color: rgb(255, 207, 223);
+    text-align: center;   
+}
+
+
