@@ -76,7 +76,7 @@ dz25/
 ├── index.html
 
 ├── js/
-│   └── domTasks.js
+│   └── listTask.js
 
 ├── css/
 │   └── style.css

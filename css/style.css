@@ -11,6 +11,7 @@ body {
     color: rgb(255, 173, 200);
     text-align: center;
     transition: 0.5s;
+    margin: 0;
 }
 
 h1:hover {
@@ -19,65 +20,104 @@ h1:hover {
     cursor: default;
 }
 
-.card-container {
+.list-paragraph-adder {
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 15px;
+    flex-direction: column;
+    gap: 10px;
+    
 }
 
-.card {
-    width: 320px;
-    box-shadow: 0 0 10px 0 rgba(71, 54, 122, 0.12);
-    border-radius: 15px;
-    padding: 5px 25px;
-}
-
-.card-upper-panel {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 3px solid rgb(255, 215, 229);
-}
-
-.card-upper-panel h1{
+.list-paragraph-adder h4 {
     font-family: 'Franklin Gothic Medium';
     font-size: 30px;
-    color: rgb(255, 173, 200);    
+    color: rgb(255, 173, 200);
+    margin: 0;
 }
 
-.card-upper-panel button{
+.list-paragraph-adder form {
+    display: flex;
+    gap: 10px;
+}
+
+.list-paragraph-adder form input {
+    width: 250px;
+    height: 30px;
+    padding:  0 10px;
+    border-radius: 100px;
+    outline: none;
+    border: 2px solid rgb(255, 138, 177);
+    background-color: rgb(255, 245, 248);
+
     font-family: 'Franklin Gothic Medium';
-    font-size: 20px;
-    color: rgb(255, 255, 255);
+    font-size: 15px;
+    color: rgb(255, 138, 177);
+}
+
+.list-paragraph-adder form input::placeholder {
+    font-family: 'Franklin Gothic Medium';
+    font-size: 15px;
+    color: rgb(255, 193, 214);
+}
+
+.list-paragraph-adder form button {
+    height: 32px;
+    width: 100px;
+    border-radius: 100px;
     border: none;
-    border-radius: 15px;
-    padding: 5px 10px;
-    background-color: rgb(255, 173, 200);   
-    transition: 0.2s; 
-}
+    outline: none;
+    background-color: rgb(255, 138, 177);
 
-.card-upper-panel button:active{
-    scale: 0.8;    
-}
-
-.card-bottom-panel {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: 0.4s;
-}
-.card.expanded .card-bottom-panel {
-    max-height: 500px;
-    opacity: 1;
-    transform: translateY(0);
-}
-.card-bottom-panel p{
     font-family: 'Franklin Gothic Medium';
-    font-size: 20px;
-    color: rgb(255, 207, 223);
-    text-align: center;   
+    font-size: 15px;
+    color: rgb(255, 245, 248);
+
+    transition: 0.1s;
 }
+
+.list-paragraph-adder form button:active {
+    scale: 0.9;
+}
+
+.list-holder {
+    padding: 0;
+    width: 380px;
+    justify-content: flex-start;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.list-holder li {
+    font-family: 'Franklin Gothic Medium';
+    font-size: 15px;
+    color: rgb(255, 138, 177);
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.list-holder button {
+    background-color: rgba(255, 160, 192, 0.384);
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    border: none;
+
+    font-family: 'Franklin Gothic Medium';
+    font-size: 10px;
+    color: rgb(255, 255, 255);
+    
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
