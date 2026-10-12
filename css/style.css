@@ -1,16 +1,29 @@
+html {
+    scrollbar-color: rgb(255, 138, 177) rgb(255, 245, 248);
+    scrollbar-width: thin;
+}
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
+
+    margin: 0;
+    padding: 30px;
+
+    background-color: rgb(255, 255, 255);
 }
 
 .hw-text {
     font-family: 'Franklin Gothic Medium';
     font-size: 50px;
     color: rgb(255, 173, 200);
+
     text-align: center;
+
     transition: 0.5s;
+
     margin: 0;
 }
 
@@ -20,104 +33,189 @@ h1:hover {
     cursor: default;
 }
 
-.list-paragraph-adder {
+form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    
+    gap: 20px;
+
+    width: 400px;
 }
 
-.list-paragraph-adder h4 {
-    font-family: 'Franklin Gothic Medium';
-    font-size: 30px;
-    color: rgb(255, 173, 200);
-    margin: 0;
-}
-
-.list-paragraph-adder form {
-    display: flex;
-    gap: 10px;
-}
-
-.list-paragraph-adder form input {
-    width: 250px;
-    height: 30px;
-    padding:  0 10px;
-    border-radius: 100px;
-    outline: none;
-    border: 2px solid rgb(255, 138, 177);
-    background-color: rgb(255, 245, 248);
-
-    font-family: 'Franklin Gothic Medium';
-    font-size: 15px;
-    color: rgb(255, 138, 177);
-}
-
-.list-paragraph-adder form input::placeholder {
+label {
     font-family: 'Franklin Gothic Medium';
     font-size: 15px;
     color: rgb(255, 193, 214);
 }
 
-.list-paragraph-adder form button {
+.label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.term {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox {
+    position: relative;
+    width: 18px;
+    height: 18px;
+}
+
+#checkbox {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    border: 2px solid rgb(255, 138, 177);
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+    transition:  0.2s;
+}
+
+#checkbox:active{
+    scale: 1.2;
+}
+
+.checkmark {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+#checkbox:checked {
+    background-color: rgb(255, 138, 177);
+}
+
+#checkbox:checked + .checkmark {
+    display: flex;
+}
+
+.input, .password-conainer {
+    box-sizing: border-box;
+
+    width: 100%;
     height: 32px;
-    width: 100px;
+
+    padding: 0 10px;
+
     border-radius: 100px;
+    border: 2px solid rgb(255, 138, 177);
+    outline: none;
+
+    background-color: rgb(255, 245, 248);
+
+    font-family: 'Franklin Gothic Medium';
+    font-size: 15px;
+
+    color: rgb(255, 138, 177);
+}
+
+.input::placeholder {
+    font-family: 'Franklin Gothic Medium';
+    font-size: 15px;
+    color: rgb(255, 193, 214);
+}
+
+select {
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 32px;
+
+    padding: 5px 10px;
+
     border: none;
     outline: none;
+    border-radius: 100px;
+
     background-color: rgb(255, 138, 177);
 
     font-family: 'Franklin Gothic Medium';
     font-size: 15px;
+
+    color: rgb(255, 245, 248);
+}
+.button {
+    width: 100%;
+
+    padding: 7px 10px;
+
+    border: none;
+    outline: none;
+    border-radius: 100px;
+
+    background-color: rgb(255, 138, 177);
+
+    font-family: 'Franklin Gothic Medium';
+    font-size: 15px;
+
     color: rgb(255, 245, 248);
 
     transition: 0.1s;
 }
 
-.list-paragraph-adder form button:active {
+form button:active {
     scale: 0.9;
 }
 
-.list-holder {
-    padding: 0;
-    width: 380px;
-    justify-content: flex-start;
+.password-conainer {
     display: flex;
-    gap: 20px;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.list-holder li {
+.password-conainer input{
+    border: none;
+    width: 100%;
+
+    background-color: rgb(255, 245, 248);
+    outline: none;
+
     font-family: 'Franklin Gothic Medium';
     font-size: 15px;
     color: rgb(255, 138, 177);
-    display: flex;
-    justify-content: space-between;
-
 }
 
-.list-holder button {
-    background-color: rgba(255, 160, 192, 0.384);
-    height: 20px;
-    width: 20px;
-    border-radius: 100%;
+.password-conainer button{
     border: none;
-
-    font-family: 'Franklin Gothic Medium';
-    font-size: 10px;
-    color: rgb(255, 255, 255);
-    
+    background-color: rgb(255, 245, 248);
+    display: flex;
+    align-items: center;
 }
 
+.password-conainer img{
+    width: 15px;
+}
 
+[data-error] {
+    font-size: 0;
+}
 
+.error-active {
+    font-size: 15px;
+    color: rgb(244, 214, 224);
+    padding: 0;
+    margin: 0;
+}
 
-
-
-
-
-
-
-
+pre {
+    color: rgb(247, 171, 194);
+}
 
 

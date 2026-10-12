@@ -1,27 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="css/style.css">
+
     <title>Домашнє завдання</title>
 </head>
+
 <body>
-    <h1 class="hw-text">Домашнє завдання: Інтерактивний список</h1>
-    <div class="list-paragraph-adder">
-        <h4>Мой список</h4>
 
-        <form method = "get">
-            <input type="text" name="listItem" placeholder="Введите пункт списка">
-            <button type="submit" data-add-buttun >добавить</button>
-        </form>
-    
-        <ul class="list-holder">
+    <h1 class="hw-text">
+        Домашнє завдання: реєстрація: форма + валідація
+    </h1>
 
-        </ul>
-    </div>
+    <form action="#" >
 
+        <label for="email" class="label">
+            Введіть email
+            <input
+                class="input"
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Наприклад, example@gmail.com"
+                data-email
+            >
+            <p data-error></p>
+        </label>
 
-    <script src="js/eventTasks.js"></script>
+        <label for="password" class="label">
+            Введіть пароль
+            <div class="password-conainer" data-password-container>
+                <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    data-password
+                >
+                <button data-button-show-hide type="button">
+                    <img src="images/hide.png" alt="">
+                </button>
+            </div>
+            <p data-error></p>
+        </label>
+
+        <label for="password-repeat" class="label">
+            Підтвердження пароля
+            <div class="password-conainer" data-password-container>
+                <input
+                    class="password"
+                    id="password-repeat"
+                    name="password-repeat"
+                    type="password"
+                    data-password-repeat
+                >
+            <button data-button-show-hide type="button">
+                <img src="images/hide.png" alt="">
+            </button>
+            </div>
+            <p data-error></p>
+        </label>
+
+        <label for="age" class="label">
+            Введіть вік
+            <input
+                class="input"
+                id="age"
+                name="age"
+                type="number"
+                min="16"
+                max="120"
+                data-age
+            >
+            <p data-error></p>
+        </label>
+
+        <label for="city" class="label">
+            Виберіть місто
+
+            <select
+                name="city"
+                id="city"
+                data-city
+            >
+                <option value="">Виберіть місто</option>
+                <option value="vinnytsia">Вінниця</option>
+                <option value="kropyvnytskyi">Кропивницький</option>
+                <option value="poltava">Полтава</option>
+                <option value="kharkiv">Харків</option>
+                <option value="odesa">Одеса</option>
+                <option value="kyiv">Київ</option>
+                <option value="dnipro">Дніпро</option>
+                <option value="luhansk">Луганськ</option>
+                <option value="rivne">Рівне</option>
+                <option value="kherson">Херсон</option>
+                <option value="donetsk">Донецьк</option>
+                <option value="lutsk">Луцьк</option>
+                <option value="simferopol">Сімферополь</option>
+                <option value="khmelnytskyi">Хмельницький</option>
+                <option value="zhytomyr">Житомир</option>
+                <option value="lviv">Львів</option>
+                <option value="sumy">Суми</option>
+                <option value="cherkasy">Черкаси</option>
+                <option value="zaporizhzhia">Запоріжжя</option>
+                <option value="mykolaiv">Миколаїв</option>
+                <option value="ternopil">Тернопіль</option>
+                <option value="chernihiv">Чернігів</option>
+                <option value="ivano-frankivsk">Івано-Франківськ</option>
+                <option value="uzhhorod">Ужгород</option>
+                <option value="chernivtsi">Чернівці</option>
+            </select>
+            <p data-error></p>
+        </label>
+
+        <label for="checkbox" class="term">
+            Погоджуюсь з умовами
+            <span class="checkbox">
+                <input
+                    id="checkbox"
+                    type="checkbox"
+                    name="terms"
+                    data-checkbox
+                >
+                <span class="checkmark">✓</span>
+            </span>
+            
+            <p data-error></p>
+        </label>
+
+        <button
+            type="submit"
+            class="button"
+            data-submit-btn
+        >
+            Зареєструватись
+        </button>
+
+        <button
+            type="button"
+            class="button"
+            data-clean-btn
+        >
+            Очистити
+        </button>
+
+    </form>
+
+    <pre data-json></pre>
+
+    <script src="js/signUp.js"></script>
+
 </body>
+
 </html>
