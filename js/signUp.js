@@ -22,6 +22,30 @@ function hideError(error) {
     error.classList.remove('error-active');
 }
 
+email.addEventListener('input', function () {
+    localStorage.setItem('email', email.value);
+});
+
+password.addEventListener('input', function () {
+    localStorage.setItem('password', password.value);
+});
+
+passwordRepeat.addEventListener('input', function () {
+    localStorage.setItem('passwordRepeat', passwordRepeat.value);
+});
+
+age.addEventListener('input', function () {
+    localStorage.setItem('age', age.value);
+});
+
+city.addEventListener('change', function () {
+    localStorage.setItem('city', city.value);
+});
+
+checkbox.addEventListener('change', function () {
+    localStorage.setItem('terms', checkbox.checked);
+});
+
 function validateEmail() {
     const error = email.closest('label').querySelector('[data-error]');
     const value = email.value.trim();
@@ -35,8 +59,6 @@ function validateEmail() {
         showError(error, 'Неправильний формат email');
         return false;
     }
-
-    localStorage.setItem('email', email.value);
 
     hideError(error);
     return true;
@@ -61,8 +83,6 @@ function validatePassword() {
         return false;
     }
 
-    localStorage.setItem('password', password.value);
-
     hideError(error);
     return true;
 }
@@ -82,8 +102,6 @@ function validateConfirmPassword() {
         return false;
     }
 
-    localStorage.setItem('passwordRepeat', passwordRepeat.value);
-
     hideError(error);
     return true;
 }
@@ -101,8 +119,6 @@ function validateAge() {
         return false;
     }
 
-    localStorage.setItem('age', age.value);
-
     hideError(error);
     return true;
 }
@@ -115,8 +131,6 @@ function validateCity() {
         return false;
     }
 
-    localStorage.setItem('city', city.value);
-
     hideError(error);
     return true;
 }
@@ -128,8 +142,6 @@ function validateTerms() {
         showError(error, 'Потрібно погодитися з умовами');
         return false;
     }
-
-    localStorage.setItem('terms', checkbox.checked);
 
     hideError(error);
     return true;
