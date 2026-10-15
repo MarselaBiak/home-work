@@ -22,29 +22,13 @@ function hideError(error) {
     error.classList.remove('error-active');
 }
 
-email.addEventListener('input', function () {
-    localStorage.setItem('email', email.value);
-});
+email.addEventListener('input', saveFormData)
+password.addEventListener('input', saveFormData)
+passwordRepeat.addEventListener('input', saveFormData)
+age.addEventListener('input', saveFormData)
 
-password.addEventListener('input', function () {
-    localStorage.setItem('password', password.value);
-});
-
-passwordRepeat.addEventListener('input', function () {
-    localStorage.setItem('passwordRepeat', passwordRepeat.value);
-});
-
-age.addEventListener('input', function () {
-    localStorage.setItem('age', age.value);
-});
-
-city.addEventListener('change', function () {
-    localStorage.setItem('city', city.value);
-});
-
-checkbox.addEventListener('change', function () {
-    localStorage.setItem('terms', checkbox.checked);
-});
+city.addEventListener('change', saveFormData)
+checkbox.addEventListener('change', saveFormData)
 
 function validateEmail() {
     const error = email.closest('label').querySelector('[data-error]');
@@ -147,39 +131,6 @@ function validateTerms() {
     return true;
 }
 
-function loadFormData() {
-    const savedEmail = localStorage.getItem('email');
-    const savedPassword = localStorage.getItem('password');
-    const savedPasswordRepeat = localStorage.getItem('passwordRepeat');
-    const savedAge = localStorage.getItem('age');
-    const savedCity = localStorage.getItem('city');
-    const savedCheckbox = localStorage.getItem('terms');
-
-    if (savedEmail !== null) {
-        email.value = savedEmail;
-    }
-
-    if (savedPassword !== null) {
-        password.value = savedPassword;
-    }
-
-    if (savedPasswordRepeat !== null) {
-        passwordRepeat.value = savedPasswordRepeat;
-    }
-
-    if (savedAge !== null) {
-        age.value = savedAge;
-    }
-
-    if (savedCity !== null) {
-        city.value = savedCity;
-    }
-
-    if (savedCheckbox !== null) {
-        checkbox.checked = savedCheckbox === 'true';
-    }
-}
-
 form.addEventListener('click', function (event) {
 
     const button = event.target.closest('[data-button-show-hide]');
@@ -202,6 +153,19 @@ form.addEventListener('click', function (event) {
 
     }
 });
+
+function saveFormData() {
+    const userData = {
+        email: email.value,
+        password: password.value,
+        passwordRepeat: passwordRepeat.value,
+        age: age.value,
+        city: city.value,
+        terms: checkbox.checked
+    }
+
+    localStorage.setItem('userData', JSON.stringify(userData))
+}
 
 email.addEventListener('focusout', function () {
     validateEmail();
@@ -315,5 +279,17 @@ cleanBtn.addEventListener('click', function (event) {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const savedData = localStorage.getItem('userData')
 
-loadFormData();
+    if (savedData === null) return
+
+    const userData = JSON.parse(savedData)
+
+    email.value = userData.email
+    password.value = userData.password
+    passwordRepeat.value = userData.passwordRepeat
+    age.value = userData.age
+    city.value = userData.city
+    checkbox.checked = userData.terms
+})
