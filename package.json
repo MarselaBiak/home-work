@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "bootstrap": "^6.0.0-alpha.1"
+  },
+  "name": "dz29",
+  "version": "1.0.0",
+  "description": "У цій роботі реалізовано збереження даних користувача у `localStorage` з використанням формату JSON. Дані зберігаються при зміні полів форми та відновлюються після перезавантаження сторінки.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

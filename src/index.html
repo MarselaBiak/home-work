@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/css.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="title-home-work">Домашнє завдання: Todo List на архітектурі MVC</h1>
+
+    <form class="w-50 mx-auto mt-10" data-create-form>
+        <div class="mb-3" >
+            <label class="title-input" for="title" class="form-label">Название задачи</label>
+            <input type="text" class="form-control" id="title">
+        </div>
+        <div class="mb-3">
+            <label class="title-input" for="description" class="form-label">Описание</label>
+            <textarea class="form-control" id="description" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn-solid mt-5 w-100 theme-inverse"> + Добавить</button>
+    </form>
+
+    <div class="d-flex align-items-center gap-3 w-50 mt-10 mx-auto">
+
+        <label class="form-control form-adorn flex-grow-1">
+            <div class="form-adorn-icon" aria-hidden="true">
+                <svg class="bi" width="16" height="16">
+                    <use href="#search"></use>
+                </svg>
+            </div>
+
+            <input type="search" class="form-ghost" placeholder="Поиск..." data-search>
+        </label>
+    </div>
+
+    <div class="btn-group w-50 mt-4 d-flex mx-auto mb-10" role="group" aria-label="Фильтр задач" data-filters>
+        <button type="button" class="btn-solid theme-inverse active" data-filter="all" aria-pressed="true">
+            Все
+        </button>
+
+        <button type="button" class="btn-outline theme-inverse" data-filter="active" aria-pressed="false">
+            В процесе
+        </button>
+
+        <button type="button" class="btn-outline theme-inverse" data-filter="completed" aria-pressed="false">
+            Сделано
+        </button>
+    </div>
+
+    <div class="w-50 mx-auto mt-4" data-todo-list>
+
+    </div>
+
+
+    <dialog class="dialog dialog-slide-down" id="editTodoDialog">
+        <div class="dialog-header">
+            <h1 class="dialog-title">Редактирование</h1>
+        </div>
+        <div class="dialog-body">
+            <form data-edit-form>
+                <input type="hidden" name="id" data-edit-id>
+                <div class="mb-3" >
+                    <label class="title-input" for="exampleInputEmail1" class="form-label">Название задачи</label>
+                    <input name="title" type="text" class="form-control" id="exampleInputEmail1" data-edit-title>
+                </div>
+                <div class="mb-3">
+                    <label class="title-input" for="fieldTextarea" class="form-label">Описание</label>
+                    <textarea name="description" class="form-control" id="fieldTextarea" rows="3" data-edit-description></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="dialog-footer">
+            <button type="button" class="btn-solid theme-secondary" data-bs-dismiss="dialog">Отменить изменения</button>
+            <button type="button" class="btn-solid theme-inverse" data-confirm-save>Сохранить</button>
+        </div>
+    </dialog>
+
+    <dialog class="dialog dialog-slide-down" id="deleteTodoDialog" >
+        <div class="dialog-header">
+            <h1 class="dialog-title">Удаление задачи</h1>
+        </div>
+        <div class="dialog-body" data-delete-form>
+            <input type="hidden" name="id" data-delete-id>
+            <p>Вы точно хотите удалить задачу <strong data-delete-title></strong>?</p>
+        </div>
+        <div class="dialog-footer">
+            <button type="button" class="btn-solid theme-secondary" data-bs-dismiss="dialog">Отменить изменения</button>
+            <button type="button" class="btn-solid theme-inverse" data-confirm-delete>Удалить</button>
+        </div>
+    </dialog>
+
+
+    <script type="module" src="./scripts/main.js"></script>
+</body>
+</html>
